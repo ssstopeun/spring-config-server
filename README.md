@@ -103,6 +103,20 @@
 ## 4. Secure Key Manager
 
 
+## 5. 실습
+1. 현재 repo를 clone 받아 config-server, client, client2 를 실행합니다.
+![alt text](image.png)
 
-    
+2. http 폴더의 GET 명령어를 실행하여 봅니다.
+![alt text](image-1.png)
+  client1, client2 Application의 properties의 없는 정보이지만 config-server를 통해 config 정보를 불러와 주입받게 됩니다.
 
+- client1 server의 properties 속 message와 config server로 부터 받아오는 message 중 어떤 message가 출력되는지 확인하여 우선순위를 확인해 봅니다.
+
+![alt text](image-2.png)
+
+![alt text](image-4.png)
+  
+  우선순위 : application.properties > {application-name}.properties > server내의 properties
+
+3. git 저장소에 저장된 설정을 바꾼 후 refresh를 실행시켜 변경된 설정이 반영되는지 확인해봅니다.
