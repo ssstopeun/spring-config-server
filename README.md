@@ -12,7 +12,7 @@
 - Config Client : Config Server로 부터 설정 값을 가져와 사용하는 애플리케이션
 - Backend Storage : 설정 값을 저장하는 저장소 (대표적으로 Git을 사용하지만 JDBC, Valut와 같은 다른 저장소도 활용할 수 있습니다.)
 
-<image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQC4Xs%2FbtrCS0QoktP%2FJTWsRVzvK4EBGTUbqlbu5K%2Fimg.png" />
+<image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQC4Xs%2FbtrCS0QoktP%2FJTWsRVzvK4EBGTUbqlbu5K%2Fimg.png" width="700"/>
 
 ## 3. 사용 방법
 
@@ -106,17 +106,17 @@
 
 ## 5. 실습
 1. 현재 repo를 clone 받아 config-server, client, client2 를 실행합니다.
-![alt text](resources/image.png)
+<img src="resources/image.png" width="500">
 
 2. http 폴더의 GET 명령어를 실행하여 봅니다.
-![alt text](resources/image-1.png)
+<img src="resources/image-1.png" width="500">
   client1, client2 Application의 properties의 없는 정보이지만 config-server를 통해 config 정보를 불러와 주입받게 됩니다.
 
 - client1 server의 properties 속 message와 config server로 부터 받아오는 message 중 어떤 message가 출력되는지 확인하여 우선순위를 확인해 봅니다.
 
-![alt text](resources/image-2.png)
+<img src="resources/image-2.png" width="500">
 
-![alt text](resources/image-4.png)
+<img src="resources/image-4.png" width="500">
   
   우선순위 : application.properties > {application-name}.properties > server내의 properties
 
