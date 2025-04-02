@@ -1,4 +1,4 @@
-package org.example.client1;
+package org.example.client2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

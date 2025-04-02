@@ -1,1 +1,1 @@
-GET http://localhost:8082/config
+GET http://localhost:8081/config

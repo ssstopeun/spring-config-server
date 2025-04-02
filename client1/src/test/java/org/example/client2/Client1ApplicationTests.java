@@ -1,4 +1,4 @@
-package org.example.client1;
+package org.example.client2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
