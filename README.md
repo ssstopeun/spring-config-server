@@ -63,6 +63,7 @@
   ```
   SSH 키는 PEM 형식의 RSA 키여야 합니다. (`-----BEGIN RSA PRIVATE KEY-----` 형식)
 
+---
 ### 2. Spring Cloud Config Client 설정
   1) 의존성 추가
       ```
@@ -79,6 +80,7 @@
       spring.cloud.config.uri=http://localhost:8888
       ```
 
+---
 ### 3. 설정값 변경 후 반영 (Actuator Refresh)
 변경된 설정값을 애플리케이션에 방영하려면 Spring Boot Actuator의 /actuator/refresh 엔드 포인트를 호출해야합니다.
 
