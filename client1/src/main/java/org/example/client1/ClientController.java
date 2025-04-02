@@ -20,7 +20,7 @@ public class ClientController {
     private String message;
 
     @GetMapping
-    public void getConfig() {
-        log.info("App: "+appName + " (v" + appVersion + ")\n"+ " Message: "+message);
+    public String getConfig() {
+       return "App: "+appName + " (v" + appVersion + ")\n"+ "Message: "+message;
     }
 }
