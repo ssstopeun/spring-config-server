@@ -75,6 +75,7 @@
   2) 설정 파일 (application.properties)
       ```
       spring.application.name=my-service
+      server.port = 8080
       spring.cloud.config.uri=http://localhost:8888
       ```
 
@@ -96,9 +97,9 @@
     ```
   
   2) 설정값 변경후 `/actuator/refresh` 호출
-    ```
-    curl -X POST http://localhost:8080/actuator/refresh
-    ```
+     ```
+     curl -X POST http://localhost:8080/actuator/refresh
+     ```
 
 ## 4. Secure Key Manager
 
