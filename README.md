@@ -37,6 +37,7 @@
        }
    }
    ```
+
 3) 설정 파일 (application.properties)
 
    ```
@@ -62,11 +63,46 @@
   ```
   SSH 키는 PEM 형식의 RSA 키여야 합니다. (`-----BEGIN RSA PRIVATE KEY-----` 형식)
 
-### 2. Spring Cloud Config Server 설정
+### 2. Spring Cloud Config Client 설정
   1) 의존성 추가
+      ```
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-config</artifactId>
+      </dependency>
+      ```
+
+  2) 설정 파일 (application.properties)
+      ```
+      spring.application.name=my-service
+      spring.cloud.config.uri=http://localhost:8888
+      ```
+
+### 3. 설정값 변경 후 반영 (Actuator Refresh)
+변경된 설정값을 애플리케이션에 방영하려면 Spring Boot Actuator의 /actuator/refresh 엔드 포인트를 호출해야합니다.
+
+  1) client 추가 설정
+  - 의존성 추가
     ```
     <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-config-server</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
     ```
+
+  - Actuator 활성화
+    ```
+    management.endpoints.web.exposure.include=refresh
+    ```
+  
+  2) 설정값 변경후 `/actuator/refresh` 호출
+    ```
+    curl -X POST http://localhost:8080/actuator/refresh
+    ```
+
+## 4. Secure Key Manager
+
+
+
+    
+
