@@ -19,9 +19,9 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  */
 @Getter
 @RefreshScope
-@ConfigurationProperties(value = "client2")
+@ConfigurationProperties(value = "client1")
 @AllArgsConstructor
-public class Client2Config {
+public class Client1Config {
     private String message;
     private Profile profile;
 

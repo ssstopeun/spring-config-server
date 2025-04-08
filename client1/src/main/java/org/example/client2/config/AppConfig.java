@@ -2,38 +2,29 @@ package org.example.client2.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.stereotype.Component;
 
 /**
  * packageName    : org.example.client2.config
- * fileName       : Client2
+ * fileName       : AppConfig
  * author         : parkminsu
- * date           : 25. 4. 8.
+ * date           : 25. 4. 7.
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 25. 4. 8.        parkminsu       최초 생성
+ * 25. 4. 7.        parkminsu       최초 생성
  */
-@Getter
 @RefreshScope
-@ConfigurationProperties(value = "client2")
+@Getter
 @AllArgsConstructor
-public class Client2Config {
-    private String message;
-    private Profile profile;
+@ConfigurationProperties(value = "app")
+public class AppConfig {
+    private String name;
 
-    @Getter
-    @Setter
-    public static class Profile {
-        private Active active;
-        @Getter
-        @Setter
-        public static class Active {
-            private String message;
-        }
-    }
+    private String version;
 
 }
