@@ -53,8 +53,91 @@
   ```
   spring.cloud.config.server.git.uri=https://github.com/example/config-repo
   spring.cloud.config.server.git.username=my-username
-  spring.cloud.config.server.git.password=my-password
+  spring.cloud.config.server.git.password=GitHub PAT
   ```
+
+username은 GitHub 계정 아이디,
+
+password는 **GitHub Personal Access Token(PAT)** 을 사용합니다.
+
+* GitHub PAT란?
+
+    PAT = Personal Access Token
+
+    GitHub에서 비밀번호 대신 사용하는 인증 토큰
+
+    2021년 이후 GitHub는 비밀번호 인증을 중단하고 PAT만 허용
+
+  
+* 주로 사용되는 곳:
+  
+    1. HTTPS 기반 Git clone/push
+
+    2. Spring Cloud Config Server 인증
+
+    3. GitHub API 호출
+
+    4. GitHub Actions에서 private repo 접근
+
+
+* PAT 사용 시 주의사항
+    
+  1) 보안	노출 금지 (코드/커밋/환경변수 철저 관리)
+
+  2) 유효기간	만료일 설정 가능 → 주기적 갱신 필요
+
+  3) 생성 위치	GitHub → Settings > Developer settings > Personal access tokens
+
+  4) 권한 최소화	필요한 범위만 체크 (예: repo, read:packages)
+
+* PAT 설정 방법
+
+1. 본인 프로필 사진 클릭하면 아래 이미지처럼 화면이 나옴
+
+<img src="resources/image-5.png" width="300">
+
+2. setting 버튼 누른 뒤, 사이드 바 맨 하단에 있는 developer setting 클릭
+
+<img src="resources/image-6.png" width="500">
+
+3. Personal Access Token -> Fine-grained tokens 클릭
+
+<img src="resources/image-7.png" width="500">
+
+4. Generate new token 버튼 클릭
+
+<img src="resources/image-8.png" width="500">
+
+```text
+token name: token 이름
+token description: 토큰 설명(생략해도 됨)
+Resource owner: 토큰의 실소유자 설정
+Expiration: 토큰의 만료기간, No Expiration 설정 시 토큰 기한이 무제한
+```
+
+<img src="resources/image-9.png" width="500">
+
+```text
+Repository access: Personal Access Token으로 접근할 수 있는 리포지토리를 설정
+
+-> config repository 접근하므로 All repository 
+    또는 Only select repository 선택, 
+    가급적 Only select repository 선택해서 config-repo 설정 
+```
+
+<img src="resources/image-10.png" width="500">
+
+```text
+Repository permissions 항목에서 반드시 Contents - Read access를 
+체크해야 함.
+
+권한이 없으면 레포의 설정, 파일, 구성 정보를 읽을 수 없어 토큰이 정상 작동하지 않음
+
+특히 Spring Cloud Config Server에서 사용 시 꼭 필요함.
+
+```
+
+
 * SSH 인증 사용
 
   ```
