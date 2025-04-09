@@ -192,7 +192,7 @@
 
     appName과 message는 client1, client2 Application의 properties에 없는 정보이지만 config-server를 통해 config 정보를 불러와 주입받게 됩니다.
 
-    <img src="resources/image-2.png" width="500">
+<img src="resources/image-2.png" width="500">
 
 
 3. 개인 git repository에 config 설정파일을 저장한 후 이를 config-server와 직접 연결하여 봅니다. 그 후 설정을 바꾸어보고 refresh를 통해 반영이 되는지 확인해봅니다.
